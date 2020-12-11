@@ -28,17 +28,22 @@ echo "Flutter SDK found at ${LOCAL_SDK_PATH}"
 declare -ar PROJECT_NAMES=(
     "add_to_app/flutter_module" \
     "add_to_app/flutter_module_using_plugin" \
+    "add_to_app/flutter_module_books" \
     "animations" \
-    "gallery/gallery" \
     "flutter_maps_firestore" \
+    "infinite_list" \
+    "ios_app_clip" \
     "isolate_example" \
     "jsonexample" \
     "place_tracker" \
+    "platform_channels" \
     "platform_design"
     "platform_view_swift" \
     "provider_counter" \
     "provider_shopper" \
-    "veggieseasons" \
+    "testing_app" \
+# TODO(goderbauer): Add veggieseasons back when moved out of experimental again.
+#    "veggieseasons" \
 )
 
 for PROJECT_NAME in "${PROJECT_NAMES[@]}"
@@ -46,8 +51,17 @@ do
     echo "== Testing '${PROJECT_NAME}' on Flutter's ${FLUTTER_VERSION} channel =="
     pushd "${PROJECT_NAME}"
 
+    # Grab packages.
+    "${LOCAL_SDK_PATH}/bin/flutter" pub get
+
     # Run the analyzer to find any static analysis issues.
     "${LOCAL_SDK_PATH}/bin/flutter" analyze
+
+    # Reformat the web plugin registrant, if necessary.
+    if [ -f "lib/generated_plugin_registrant.dart" ]
+    then
+        "${LOCAL_SDK_PATH}/bin/flutter" format "lib/generated_plugin_registrant.dart"
+    fi
 
     # Run the formatter on all the dart files to make sure everything's linted.
     "${LOCAL_SDK_PATH}/bin/flutter" format -n --set-exit-if-changed .
@@ -57,16 +71,5 @@ do
 
     popd
 done
-
-# Test that the code segment widgets that get displayed in the Flutter Material
-# gallery have been generated using the latest gallery code. Also test that
-# the localization scripts have been run, so that they are up to date for the
-# gallery.
-pushd gallery/gallery
-echo "Run code segments check for 'gallery/gallery'."
-"${LOCAL_SDK_PATH}/bin/flutter" pub run grinder verify-code-segments
-echo "Run localization check for 'gallery/gallery'."
-"${LOCAL_SDK_PATH}/bin/flutter" pub run grinder verify-l10n
-popd
 
 echo "-- Success --"

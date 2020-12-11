@@ -1,10 +1,10 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-import 'songs_tab.dart';
 import 'news_tab.dart';
 import 'profile_tab.dart';
 import 'settings_tab.dart';
+import 'songs_tab.dart';
 import 'widgets.dart';
 
 void main() => runApp(MyAdaptingApp());
@@ -20,6 +20,7 @@ class MyAdaptingApp extends StatelessWidget {
         // Use the green theme for Material widgets.
         primarySwatch: Colors.green,
       ),
+      darkTheme: ThemeData.dark(),
       builder: (context, child) {
         return CupertinoTheme(
           // Instead of letting Cupertino widgets auto-adapt to the Material
@@ -79,11 +80,17 @@ class _PlatformAdaptingHomePageState extends State<PlatformAdaptingHomePage> {
       tabBar: CupertinoTabBar(
         items: [
           BottomNavigationBarItem(
-              title: Text(SongsTab.title), icon: SongsTab.iosIcon),
+            label: SongsTab.title,
+            icon: SongsTab.iosIcon,
+          ),
           BottomNavigationBarItem(
-              title: Text(NewsTab.title), icon: NewsTab.iosIcon),
+            label: NewsTab.title,
+            icon: NewsTab.iosIcon,
+          ),
           BottomNavigationBarItem(
-              title: Text(ProfileTab.title), icon: ProfileTab.iosIcon),
+            label: ProfileTab.title,
+            icon: ProfileTab.iosIcon,
+          ),
         ],
       ),
       tabBuilder: (context, index) {

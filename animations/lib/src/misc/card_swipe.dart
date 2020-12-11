@@ -17,6 +17,7 @@ class CardSwipeDemo extends StatefulWidget {
 class _CardSwipeDemoState extends State<CardSwipeDemo> {
   List<String> fileNames;
 
+  @override
   void initState() {
     super.initState();
     _resetCards();
@@ -30,6 +31,7 @@ class _CardSwipeDemoState extends State<CardSwipeDemo> {
     ];
   }
 
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
@@ -43,7 +45,6 @@ class _CardSwipeDemoState extends State<CardSwipeDemo> {
               Expanded(
                 child: ClipRect(
                   child: Stack(
-                    overflow: Overflow.clip,
                     children: <Widget>[
                       for (final fileName in fileNames)
                         SwipeableCard(
@@ -79,6 +80,7 @@ class Card extends StatelessWidget {
 
   Card(this.imageAssetName);
 
+  @override
   Widget build(BuildContext context) {
     return AspectRatio(
       aspectRatio: 3 / 5,
@@ -104,6 +106,7 @@ class SwipeableCard extends StatefulWidget {
     this.imageAssetName,
   });
 
+  @override
   _SwipeableCardState createState() => _SwipeableCardState();
 }
 
@@ -114,6 +117,7 @@ class _SwipeableCardState extends State<SwipeableCard>
   double _dragStartX;
   bool _isSwipingLeft = false;
 
+  @override
   void initState() {
     super.initState();
     _controller = AnimationController.unbounded(vsync: this);
@@ -123,6 +127,7 @@ class _SwipeableCardState extends State<SwipeableCard>
     ));
   }
 
+  @override
   Widget build(BuildContext context) {
     return SlideTransition(
       position: _animation,
@@ -181,6 +186,7 @@ class _SwipeableCardState extends State<SwipeableCard>
     });
   }
 
+  @override
   void dispose() {
     _controller.dispose();
     super.dispose();

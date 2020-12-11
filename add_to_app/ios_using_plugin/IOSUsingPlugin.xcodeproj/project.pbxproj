@@ -45,7 +45,7 @@
 		261836602353DC9600E2709C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		261836622353DC9700E2709C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		261836652353DC9700E2709C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		261836672353DC9700E2709C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		261836672353DC9700E2709C /* Info-Debug.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Info-Debug.plist"; sourceTree = "<group>"; };
 		2618366C2353DC9700E2709C /* IOSUsingPluginTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = IOSUsingPluginTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		261836702353DC9700E2709C /* IOSUsingPluginTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IOSUsingPluginTests.swift; sourceTree = "<group>"; };
 		261836722353DC9700E2709C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -59,6 +59,7 @@
 		9EF4D3F69A8A2DAF318D5D8F /* Pods-IOSUsingPlugin.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-IOSUsingPlugin.release.xcconfig"; path = "Target Support Files/Pods-IOSUsingPlugin/Pods-IOSUsingPlugin.release.xcconfig"; sourceTree = "<group>"; };
 		BF8095192EC0A98CBABFC968 /* Pods-IOSUsingPluginUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-IOSUsingPluginUITests.debug.xcconfig"; path = "Target Support Files/Pods-IOSUsingPluginUITests/Pods-IOSUsingPluginUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		D2BE8518A3FAC05A3EF43C4A /* Pods-IOSUsingPlugin.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-IOSUsingPlugin.debug.xcconfig"; path = "Target Support Files/Pods-IOSUsingPlugin/Pods-IOSUsingPlugin.debug.xcconfig"; sourceTree = "<group>"; };
+		F7C79933251EF79100650C20 /* Info-Release.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Info-Release.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -119,7 +120,8 @@
 				2618365F2353DC9600E2709C /* Main.storyboard */,
 				261836622353DC9700E2709C /* Assets.xcassets */,
 				261836642353DC9700E2709C /* LaunchScreen.storyboard */,
-				261836672353DC9700E2709C /* Info.plist */,
+				261836672353DC9700E2709C /* Info-Debug.plist */,
+				F7C79933251EF79100650C20 /* Info-Release.plist */,
 			);
 			path = IOSUsingPlugin;
 			sourceTree = "<group>";
@@ -173,7 +175,7 @@
 			buildConfigurationList = 261836802353DC9700E2709C /* Build configuration list for PBXNativeTarget "IOSUsingPlugin" */;
 			buildPhases = (
 				F3A11171C3E948C4D70DE3FF /* [CP] Check Pods Manifest.lock */,
-				48A52C41E35221C59A28F7A6 /* [CP-User] Run Flutter Build Script */,
+				B1CE736C1847DAED57A90EA0 /* [CP-User] Run Flutter Build flutter_module_using_plugin Script */,
 				261836542353DC9600E2709C /* Sources */,
 				261836552353DC9600E2709C /* Frameworks */,
 				261836562353DC9600E2709C /* Resources */,
@@ -234,7 +236,7 @@
 			attributes = {
 				LastSwiftUpdateCheck = 1030;
 				LastUpgradeCheck = 1030;
-				ORGANIZATIONNAME = "Andrew Brogdon";
+				ORGANIZATIONNAME = "";
 				TargetAttributes = {
 					261836572353DC9600E2709C = {
 						CreatedOnToolsVersion = 10.3;
@@ -319,22 +321,6 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		48A52C41E35221C59A28F7A6 /* [CP-User] Run Flutter Build Script */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${SRCROOT}/../flutter_module_using_plugin/.metadata",
-				"${SRCROOT}/../flutter_module_using_plugin/.ios/Flutter/App.framework/App",
-				"${SRCROOT}/../flutter_module_using_plugin/.ios/Flutter/engine/Flutter.framework/Flutter",
-				"${SRCROOT}/../flutter_module_using_plugin/.ios/Flutter/flutter_export_environment.sh",
-			);
-			name = "[CP-User] Run Flutter Build Script";
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "set -e\nset -u\nsource \"${SRCROOT}/../flutter_module_using_plugin/.ios/Flutter/flutter_export_environment.sh\"\n\"$FLUTTER_ROOT\"/packages/flutter_tools/bin/xcode_backend.sh build";
-		};
 		7EE0349058A10AC76854983D /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -351,6 +337,22 @@
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-IOSUsingPlugin/Pods-IOSUsingPlugin-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
+		};
+		B1CE736C1847DAED57A90EA0 /* [CP-User] Run Flutter Build flutter_module_using_plugin Script */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/../flutter_module_using_plugin/.metadata",
+				"${SRCROOT}/../flutter_module_using_plugin/.ios/Flutter/App.framework/App",
+				"${SRCROOT}/../flutter_module_using_plugin/.ios/Flutter/engine/Flutter.framework/Flutter",
+				"${SRCROOT}/../flutter_module_using_plugin/.ios/Flutter/flutter_export_environment.sh",
+			);
+			name = "[CP-User] Run Flutter Build flutter_module_using_plugin Script";
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "set -e\nset -u\nsource \"${SRCROOT}/../flutter_module_using_plugin/.ios/Flutter/flutter_export_environment.sh\"\n\"$FLUTTER_ROOT\"/packages/flutter_tools/bin/xcode_backend.sh build";
 		};
 		C0D4CDC52A0592E240DD761D /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -581,7 +583,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = IOSUsingPlugin/Info.plist;
+				INFOPLIST_FILE = "IOSUsingPlugin/Info-$(CONFIGURATION).plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -599,7 +601,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = IOSUsingPlugin/Info.plist;
+				INFOPLIST_FILE = "IOSUsingPlugin/Info-$(CONFIGURATION).plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
